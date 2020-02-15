@@ -249,6 +249,7 @@ loaderApi.pitch = function loader(request) {
           this,
           `!${path.join(__dirname, 'runtime/injectStylesIntoStyleTag.js')}`
         )});
+        // 在这里调用 css loader
         var content = require(${loaderUtils.stringifyRequest(
           this,
           `!!${request}`
