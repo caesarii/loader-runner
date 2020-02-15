@@ -13,10 +13,11 @@ const loaderApi = () => {};
 // ../node_modules/css-loader/dist/cjs.js!./style.css
 
 loaderApi.pitch = function loader(request) {
-  console.log('hello style loader src', request)
-  console.log('stringifyRequesst', loaderUtils.stringifyRequest(this, request))
+  console.log('styleLoader pitch request', request)
   // options 来自 this.query
   const options = loaderUtils.getOptions(this) || {};
+  console.log('styleLoader pitch options', options)
+
 
   validateOptions(schema, options, {
     name: 'Style Loader',
@@ -35,7 +36,9 @@ loaderApi.pitch = function loader(request) {
 
   delete options.esModule;
 
-  console.log('this hot', this.hot)
+  console.log('styleLoader pitch injectType', injectType)
+  console.log('styleLoader pitch esModule', esModule)
+  console.log('styleLoader pitch this.hot', this.hot)
 
   switch (injectType) {
     case 'linkTag': {
@@ -201,7 +204,6 @@ loaderApi.pitch = function loader(request) {
     case 'singletonStyleTag':
     default: {
       const isSingleton = injectType === 'singletonStyleTag';
-      console.log('esModule', esModule)
       let hmrCode = ''
       if (this.hot) {
         hmrCode = `

@@ -21,6 +21,8 @@ import {
   normalizeSourceMap,
 } from './utils';
 
+console.log('123adc')
+
 export default function loader(content, map, meta) {
   const options = getOptions(this) || {};
 
@@ -137,8 +139,10 @@ export default function loader(content, map, meta) {
         localsConvention,
         esModule
       );
-
-      return callback(null, [importCode, moduleCode, exportCode].join(''));
+      
+      const r =  callback(null, [importCode, moduleCode, exportCode].join(''));
+      console.log('css result', r)
+      return r
     })
     .catch((error) => {
       callback(

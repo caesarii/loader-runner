@@ -31,6 +31,8 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
   MIT License http://www.opensource.org/licenses/mit-license.php
   Author Tobias Koppers @sokra
 */
+console.log('123adc');
+
 function loader(content, map, meta) {
   const options = (0, _loaderUtils.getOptions)(this) || {};
   (0, _schemaUtils.default)(_options.default, options, {
@@ -112,7 +114,9 @@ function loader(content, map, meta) {
     const importCode = (0, _utils.getImportCode)(this, imports, exportType, sourceMap, importLoaders, esModule);
     const moduleCode = (0, _utils.getModuleCode)(this, result, exportType, sourceMap, replacers);
     const exportCode = (0, _utils.getExportCode)(this, exports, exportType, replacers, localsConvention, esModule);
-    return callback(null, [importCode, moduleCode, exportCode].join(''));
+    const r = callback(null, [importCode, moduleCode, exportCode].join(''));
+    console.log('css result', r);
+    return r;
   }).catch(error => {
     callback(error.name === 'CssSyntaxError' ? new _CssSyntaxError.default(error) : error);
   });
