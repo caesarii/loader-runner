@@ -1,0 +1,201 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`"importLoaders" option should work when not specified: errors 1`] = `Array []`;
+
+exports[`"importLoaders" option should work when not specified: module 1`] = `
+"// Imports
+var ___CSS_LOADER_API_IMPORT___ = require(\\"../../../src/runtime/api.js\\");
+var ___CSS_LOADER_AT_RULE_IMPORT_0___ = require(\\"-!../../../src/index.js!./imported.css\\");
+exports = ___CSS_LOADER_API_IMPORT___(false);
+exports.i(___CSS_LOADER_AT_RULE_IMPORT_0___);
+// Module
+exports.push([module.id, \\".foo {\\\\n  color: red;\\\\n  color: rgba(0, 0, 255, 0.9);\\\\n}\\\\n\\", \\"\\"]);
+// Exports
+module.exports = exports;
+"
+`;
+
+exports[`"importLoaders" option should work when not specified: result 1`] = `
+Array [
+  Array [
+    "../../src/index.js!./nested-import/imported.css",
+    ".bar {
+  color: blue;
+  color: rgb(0 0 100% / 90%);
+}
+",
+    "",
+  ],
+  Array [
+    "./nested-import/source.css",
+    ".foo {
+  color: red;
+  color: rgba(0, 0, 255, 0.9);
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`"importLoaders" option should work when not specified: warnings 1`] = `Array []`;
+
+exports[`"importLoaders" option should work with a value equal to "0" (\`postcss-loader\` before): errors 1`] = `Array []`;
+
+exports[`"importLoaders" option should work with a value equal to "0" (\`postcss-loader\` before): module 1`] = `
+"// Imports
+var ___CSS_LOADER_API_IMPORT___ = require(\\"../../../src/runtime/api.js\\");
+var ___CSS_LOADER_AT_RULE_IMPORT_0___ = require(\\"-!../../../src/index.js??[ident]!./imported.css\\");
+exports = ___CSS_LOADER_API_IMPORT___(false);
+exports.i(___CSS_LOADER_AT_RULE_IMPORT_0___);
+// Module
+exports.push([module.id, \\".foo {\\\\n  color: red;\\\\n  color: rgba(0, 0, 255, 0.9);\\\\n}\\\\n\\", \\"\\"]);
+// Exports
+module.exports = exports;
+"
+`;
+
+exports[`"importLoaders" option should work with a value equal to "0" (\`postcss-loader\` before): result 1`] = `
+Array [
+  Array [
+    "../../src/index.js?[ident]!./nested-import/imported.css",
+    ".bar {
+  color: blue;
+  color: rgb(0 0 100% / 90%);
+}
+",
+    "",
+  ],
+  Array [
+    "./nested-import/source.css",
+    ".foo {
+  color: red;
+  color: rgba(0, 0, 255, 0.9);
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`"importLoaders" option should work with a value equal to "0" (\`postcss-loader\` before): warnings 1`] = `Array []`;
+
+exports[`"importLoaders" option should work with a value equal to "1" ("postcss-loader" before): errors 1`] = `Array []`;
+
+exports[`"importLoaders" option should work with a value equal to "1" ("postcss-loader" before): module 1`] = `
+"// Imports
+var ___CSS_LOADER_API_IMPORT___ = require(\\"../../../src/runtime/api.js\\");
+var ___CSS_LOADER_AT_RULE_IMPORT_0___ = require(\\"-!../../../src/index.js??[ident]!./imported.css\\");
+exports = ___CSS_LOADER_API_IMPORT___(false);
+exports.i(___CSS_LOADER_AT_RULE_IMPORT_0___);
+// Module
+exports.push([module.id, \\".foo {\\\\n  color: red;\\\\n  color: rgba(0, 0, 255, 0.9);\\\\n}\\\\n\\", \\"\\"]);
+// Exports
+module.exports = exports;
+"
+`;
+
+exports[`"importLoaders" option should work with a value equal to "1" ("postcss-loader" before): result 1`] = `
+Array [
+  Array [
+    "../../src/index.js?[ident]!./nested-import/imported.css",
+    ".bar {
+  color: blue;
+  color: rgba(0, 0, 255, 0.9);
+}
+",
+    "",
+  ],
+  Array [
+    "./nested-import/source.css",
+    ".foo {
+  color: red;
+  color: rgba(0, 0, 255, 0.9);
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`"importLoaders" option should work with a value equal to "1" ("postcss-loader" before): warnings 1`] = `Array []`;
+
+exports[`"importLoaders" option should work with a value equal to "1" (no loaders before): errors 1`] = `Array []`;
+
+exports[`"importLoaders" option should work with a value equal to "1" (no loaders before): module 1`] = `
+"// Imports
+var ___CSS_LOADER_API_IMPORT___ = require(\\"../../../src/runtime/api.js\\");
+var ___CSS_LOADER_AT_RULE_IMPORT_0___ = require(\\"-!../../../src/index.js??[ident]!./imported.css\\");
+exports = ___CSS_LOADER_API_IMPORT___(false);
+exports.i(___CSS_LOADER_AT_RULE_IMPORT_0___);
+// Module
+exports.push([module.id, \\".foo {\\\\n  color: red;\\\\n  color: rgb(0 0 100% / 90%);\\\\n}\\\\n\\", \\"\\"]);
+// Exports
+module.exports = exports;
+"
+`;
+
+exports[`"importLoaders" option should work with a value equal to "1" (no loaders before): result 1`] = `
+Array [
+  Array [
+    "../../src/index.js?[ident]!./nested-import/imported.css",
+    ".bar {
+  color: blue;
+  color: rgb(0 0 100% / 90%);
+}
+",
+    "",
+  ],
+  Array [
+    "./nested-import/source.css",
+    ".foo {
+  color: red;
+  color: rgb(0 0 100% / 90%);
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`"importLoaders" option should work with a value equal to "1" (no loaders before): warnings 1`] = `Array []`;
+
+exports[`"importLoaders" option should work with a value equal to "2" ("postcss-loader" before): errors 1`] = `Array []`;
+
+exports[`"importLoaders" option should work with a value equal to "2" ("postcss-loader" before): module 1`] = `
+"// Imports
+var ___CSS_LOADER_API_IMPORT___ = require(\\"../../../src/runtime/api.js\\");
+var ___CSS_LOADER_AT_RULE_IMPORT_0___ = require(\\"-!../../../src/index.js??[ident]!./imported.css\\");
+exports = ___CSS_LOADER_API_IMPORT___(false);
+exports.i(___CSS_LOADER_AT_RULE_IMPORT_0___);
+// Module
+exports.push([module.id, \\".foo {\\\\n  color: red;\\\\n  color: rgba(0, 0, 255, 0.9);\\\\n}\\\\n\\", \\"\\"]);
+// Exports
+module.exports = exports;
+"
+`;
+
+exports[`"importLoaders" option should work with a value equal to "2" ("postcss-loader" before): result 1`] = `
+Array [
+  Array [
+    "../../src/index.js?[ident]!./nested-import/imported.css",
+    ".bar {
+  color: blue;
+  color: rgba(0, 0, 255, 0.9);
+}
+",
+    "",
+  ],
+  Array [
+    "./nested-import/source.css",
+    ".foo {
+  color: red;
+  color: rgba(0, 0, 255, 0.9);
+}
+",
+    "",
+  ],
+]
+`;
+
+exports[`"importLoaders" option should work with a value equal to "2" ("postcss-loader" before): warnings 1`] = `Array []`;

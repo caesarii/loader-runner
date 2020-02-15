@@ -6,6 +6,27 @@ var runLoaders = require("../").runLoaders;
 var fixtures = path.resolve(__dirname, "fixtures");
 
 describe("runLoaders", function() {
+	it("6. style loaders and css loaders", function(done) {
+		runLoaders({
+			resource: path.resolve(fixtures, "styles.css"),
+			loaders: [
+				path.resolve(fixtures, "./loaders/style-loader/dist/cjs.js"),
+				path.resolve(fixtures, "./loaders/css-loader/dist/cjs.js"),
+			]
+		}, function(err, result) {
+			if(err) return done(err);
+			// result.result.should.be.eql([
+			// 	path.resolve(fixtures, "simple-async-loader.js") + "!" +
+			// 	path.resolve(fixtures, "resource.bin") + ":" +
+			// 	path.resolve(fixtures, "simple-loader.js") +
+			// 	"-simple"
+			// ]);
+			// result.cacheable.should.be.eql(true);
+			// result.fileDependencies.should.be.eql([]);
+			// result.contextDependencies.should.be.eql([]);
+			done();
+		});
+	});
 	// it("should process only a resource", function(done) {
 	// 	runLoaders({
 	// 		resource: path.resolve(fixtures, "resource.bin")
@@ -92,28 +113,28 @@ describe("runLoaders", function() {
 	// 		done();
 	// 	});
 	// });
-	it("5. should process pitching loaders", function(done) {
-		runLoaders({
-			resource: path.resolve(fixtures, "resource.bin"),
-			loaders: [
-				path.resolve(fixtures, "simple-loader.js"),
-				path.resolve(fixtures, "pitching-loader.js"),
-				path.resolve(fixtures, "simple-async-loader.js"),
-			]
-		}, function(err, result) {
-			if(err) return done(err);
-			result.result.should.be.eql([
-				path.resolve(fixtures, "simple-async-loader.js") + "!" +
-				path.resolve(fixtures, "resource.bin") + ":" +
-				path.resolve(fixtures, "simple-loader.js") +
-				"-simple"
-			]);
-			result.cacheable.should.be.eql(true);
-			result.fileDependencies.should.be.eql([]);
-			result.contextDependencies.should.be.eql([]);
-			done();
-		});
-	});
+	// it("5. should process pitching loaders", function(done) {
+	// 	runLoaders({
+	// 		resource: path.resolve(fixtures, "resource.bin"),
+	// 		loaders: [
+	// 			path.resolve(fixtures, "simple-loader.js"),
+	// 			path.resolve(fixtures, "pitching-loader.js"),
+	// 			path.resolve(fixtures, "simple-async-loader.js"),
+	// 		]
+	// 	}, function(err, result) {
+	// 		if(err) return done(err);
+	// 		result.result.should.be.eql([
+	// 			path.resolve(fixtures, "simple-async-loader.js") + "!" +
+	// 			path.resolve(fixtures, "resource.bin") + ":" +
+	// 			path.resolve(fixtures, "simple-loader.js") +
+	// 			"-simple"
+	// 		]);
+	// 		result.cacheable.should.be.eql(true);
+	// 		result.fileDependencies.should.be.eql([]);
+	// 		result.contextDependencies.should.be.eql([]);
+	// 		done();
+	// 	});
+	// });
 	// it("should interpret explicit `undefined` values from async 'pitch' loaders", function(done) {
 	// 	runLoaders({
 	// 		resource: path.resolve(fixtures, "resource.bin"),
